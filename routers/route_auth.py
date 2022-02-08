@@ -1,4 +1,3 @@
-from re import sub
 from fastapi import APIRouter
 from fastapi import Response, Request, Depends
 from fastapi.encoders import jsonable_encoder

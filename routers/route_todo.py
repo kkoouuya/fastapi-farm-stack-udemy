@@ -1,8 +1,6 @@
-from email import header
 from typing import List
 from fastapi import APIRouter, Depends, Request, Response, HTTPException
 from fastapi.encoders import jsonable_encoder
-from main import csrf_protect_exception_handler
 from schemas import SuccessMSG, Todo, TodoBody
 from database import db_create_todo, db_get_todos, db_get_single_todo, db_update_todo, db_delete_todo
 from starlette.status import HTTP_201_CREATED
@@ -32,7 +30,7 @@ async def create_todo(request: Request, response: Response, data:TodoBody, csrf_
 
 @router.get('/api/todo', response_model=List[Todo])
 async def get_todos(request: Request):
-  auth.verify_jwt(request)
+  # auth.verify_jwt(request)
   res = await db_get_todos()
   return res
 

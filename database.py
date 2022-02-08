@@ -1,4 +1,3 @@
-from email.policy import HTTP
 from decouple import config
 from typing import Union
 from fastapi import HTTPException
